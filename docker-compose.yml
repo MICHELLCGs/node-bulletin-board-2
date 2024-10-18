@@ -6,11 +6,6 @@ services:
     image: ${dockerId}/bulletin-board-db:v2
     build:
       context: ./bulletin-board-db
-    environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=D0cker2*2*
-    volumes:
-      - bb-db-data:/var/opt/mssql
     networks:
       - bb-net
 
@@ -28,6 +23,3 @@ services:
 
 networks:
   bb-net:
-
-volumes:
-  bb-db-data:
