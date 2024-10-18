@@ -3,14 +3,14 @@ version: '3.3'
 services:
       
   bb-db:
-    image: ${dockerId}/bulletin-board-db:v2
+    image: ${dockerId}/bulletin-board-db
     build:
       context: ./bulletin-board-db
     networks:
       - bb-net
 
   bb-app:
-    image: ${dockerId}/bulletin-board-app:v2
+    image: ${dockerId}/bulletin-board-app
     build:
       context: ./bulletin-board-app
     ports:
