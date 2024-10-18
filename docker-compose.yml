@@ -3,14 +3,19 @@ version: '3.3'
 services:
       
   bb-db:
-    image: ${dockerId}/bulletin-board-db
+    image: ${dockerId}/bulletin-board-db:v2
     build:
       context: ./bulletin-board-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=D0cker2*2*
+    volumes:
+      - bb-db-data:/var/opt/mssql
     networks:
       - bb-net
 
   bb-app:
-    image: ${dockerId}/bulletin-board-app
+    image: ${dockerId}/bulletin-board-app:v2
     build:
       context: ./bulletin-board-app
     ports:
@@ -23,3 +28,6 @@ services:
 
 networks:
   bb-net:
+
+volumes:
+  bb-db-data:
